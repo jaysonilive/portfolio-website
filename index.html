@@ -235,43 +235,105 @@
     </section>
 
     <!-- Education Section -->
-    <section id="education" class="py-20 bg-slate-50 dark:bg-slate-900/50">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="education" class="py-20 bg-slate-50 dark:bg-slate-900/50 overflow-hidden relative">
+        <style>
+            .slide-in-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s ease-out; }
+            .slide-in-right { opacity: 0; transform: translateX(50px); transition: all 0.8s ease-out; }
+            .reveal.active .slide-in-left, .reveal.active.slide-in-left { opacity: 1; transform: translateX(0); }
+            .reveal.active .slide-in-right, .reveal.active.slide-in-right { opacity: 1; transform: translateX(0); }
+            
+            @keyframes status-pulse {
+                0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+                70% { box-shadow: 0 0 0 15px rgba(59, 130, 246, 0); }
+                100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+            }
+            .status-pulse { animation: status-pulse 2s infinite; }
+        </style>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">Education</h2>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 dark:text-white">Educational Roadmap</h2>
                 <div class="h-1.5 w-20 bg-primary-600 rounded-full mx-auto mt-4"></div>
             </div>
 
-            <div class="relative reveal">
-                <!-- Timeline Line -->
-                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-slate-200 dark:bg-slate-800"></div>
+            <div class="relative">
+                <!-- Central Timeline Line -->
+                <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-primary-500 via-indigo-500 to-purple-500 opacity-30 rounded-full"></div>
                 
-                <!-- Education Item -->
-                <div class="relative flex flex-col md:flex-row justify-between items-center w-full group">
-                    <!-- Left Side (Timeline icon on desktop) -->
-                    <div class="hidden md:flex w-5/12 justify-end pr-8">
-                        <div class="text-right">
-                            <span class="px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 text-sm font-bold shadow-sm">2023 - Present</span>
+                <div class="space-y-12 md:space-y-0 relative z-10">
+                    
+                    <!-- Milestone 1: SVGU (Present) -->
+                    <div class="relative flex flex-col md:flex-row items-center w-full group reveal md:pt-4">
+                        <div class="hidden md:block w-1/2 pr-12 text-right slide-in-left">
+                            <span class="inline-block px-4 py-1.5 rounded-full bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 text-sm font-bold shadow-sm border border-primary-200 dark:border-primary-800">Present</span>
+                        </div>
+                        
+                        <!-- Dot -->
+                        <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white dark:bg-slate-950 border-[3px] border-primary-500 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 status-pulse">
+                            <i data-lucide="graduation-cap" class="w-5 h-5 text-primary-600 dark:text-primary-400"></i>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 pl-20 md:pl-12 md:pr-0 mt-2 md:mt-0 slide-in-right">
+                            <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700 relative overflow-hidden group-hover:border-primary-500/50 transition-colors">
+                                <div class="absolute top-0 right-0 w-24 h-24 bg-primary-500/10 rounded-bl-full -z-10"></div>
+                                <div class="md:hidden inline-block mb-3 px-3 py-1 bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 text-xs font-bold rounded-full">Present</div>
+                                <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">Pursuing B.Tech in Computer Science</h3>
+                                <h4 class="text-md font-semibold text-primary-600 dark:text-primary-400 mb-4">Sardar Vallabhbhai Global University</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    Focusing on AI, Full-Stack Dev, and specialized projects like NexClassroom.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Center Dot -->
-                    <div class="z-10 w-12 h-12 absolute left-1/2 transform -translate-x-1/2 bg-white dark:bg-slate-950 border-4 border-primary-500 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        <i data-lucide="graduation-cap" class="w-5 h-5 text-primary-600 dark:text-primary-400"></i>
-                    </div>
-                    
-                    <!-- Right Side Content -->
-                    <div class="w-full md:w-5/12 pl-0 md:pl-8 mt-12 md:mt-0">
-                        <div class="bg-white dark:bg-slate-800 p-6 lg:p-8 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700 relative overflow-hidden group-hover:border-primary-500/50 transition-colors">
-                            <div class="absolute top-0 right-0 w-24 h-24 bg-primary-500/10 rounded-bl-full -z-10"></div>
-                            <div class="md:hidden inline-block mb-4 px-3 py-1 bg-primary-100 dark:bg-primary-900/40 text-primary-700 dark:text-primary-300 text-xs font-bold rounded-full">2023 - Present</div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Bachelor of Science in Computer Science</h3>
-                            <h4 class="text-lg font-semibold text-primary-600 dark:text-primary-400 mb-4">Sardar Vallabhbhai Global University</h4>
-                            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                Focusing on software engineering principles, data structures, algorithms, and modern web technologies. Participating actively in coding clubs and university hackathons.
-                            </p>
+
+                    <!-- Milestone 2: LJKU -->
+                    <div class="relative flex flex-col md:flex-row items-center w-full group reveal md:pt-16">
+                        <div class="w-full md:w-1/2 pl-20 md:pl-0 md:pr-12 mt-2 md:mt-0 order-2 md:order-1 slide-in-left text-left md:text-right">
+                            <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700 relative overflow-hidden group-hover:border-indigo-500/50 transition-colors">
+                                <div class="absolute top-0 left-0 md:right-0 md:left-auto w-24 h-24 bg-indigo-500/10 rounded-br-full md:rounded-bl-full md:rounded-br-none -z-10"></div>
+                                <div class="md:hidden inline-block mb-3 px-3 py-1 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-xs font-bold rounded-full">Completed</div>
+                                <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">Diploma in Computer Engineering</h3>
+                                <h4 class="text-md font-semibold text-indigo-600 dark:text-indigo-400 mb-4">LJ University (LJKU)</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    Gained core foundations in software and hardware components.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Dot -->
+                        <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white dark:bg-slate-950 border-[3px] border-indigo-500 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 order-1 md:order-2">
+                            <i data-lucide="cpu" class="w-5 h-5 text-indigo-600 dark:text-indigo-400"></i>
+                        </div>
+
+                        <div class="hidden md:block w-1/2 pl-12 text-left order-3 slide-in-right">
+                            <span class="inline-block px-4 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-sm font-bold shadow-sm border border-indigo-200 dark:border-indigo-800">Completed</span>
                         </div>
                     </div>
+
+                    <!-- Milestone 3: Foundation -->
+                    <div class="relative flex flex-col md:flex-row items-center w-full group reveal md:pt-16">
+                        <div class="hidden md:block w-1/2 pr-12 text-right slide-in-left">
+                            <span class="inline-block px-4 py-1.5 rounded-full bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 text-sm font-bold shadow-sm border border-purple-200 dark:border-purple-800">Foundation</span>
+                        </div>
+                        
+                        <!-- Dot -->
+                        <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-12 h-12 bg-white dark:bg-slate-950 border-[3px] border-purple-500 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="book-open" class="w-5 h-5 text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        
+                        <div class="w-full md:w-1/2 pl-20 md:pl-12 md:pr-0 mt-2 md:mt-0 slide-in-right">
+                            <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-700 relative overflow-hidden group-hover:border-purple-500/50 transition-colors">
+                                <div class="absolute top-0 right-0 w-24 h-24 bg-purple-500/10 rounded-bl-full -z-10"></div>
+                                <div class="md:hidden inline-block mb-3 px-3 py-1 bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 text-xs font-bold rounded-full">Foundation</div>
+                                <h3 class="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-2">Schooling Completion</h3>
+                                <h4 class="text-md font-semibold text-purple-600 dark:text-purple-400 mb-4">Shanti Asiatic School</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    Developed an early passion for technology and problem-solving.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
