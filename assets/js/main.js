@@ -102,20 +102,20 @@ const projectData = {
         title: "NexClassroom - AI Academic Suite",
         techStack: "Flutter (Frontend), Python (Backend AI), Dart, QR Validation Logic.",
         features: [
-            "<strong>AI Evaluator:</strong> Automatically evaluates student assignments based on predefined rubrics using Python AI logic.",
-            "<strong>Secure QR Validation:</strong> A unique QR-based system that prevents academic dishonesty by validating the physical presence/identity of the submitter.",
-            "<strong>Cross-Platform:</strong> Built with Flutter to ensure a seamless experience across Android, iOS, and Web.",
-            "<strong>Faculty Dashboard:</strong> Provides detailed analytics on student performance and grading trends."
+            { label: "AI Evaluator:", desc: "Automatically evaluates student assignments based on predefined rubrics using Python AI logic." },
+            { label: "Secure QR Validation:", desc: "A unique QR-based system that prevents academic dishonesty by validating the physical presence/identity of the submitter." },
+            { label: "Cross-Platform:", desc: "Built with Flutter to ensure a seamless experience across Android, iOS, and Web." },
+            { label: "Faculty Dashboard:", desc: "Provides detailed analytics on student performance and grading trends." }
         ]
     },
     friday: {
         title: "F.R.I.D.A.Y. - Agentic AI Assistant",
         techStack: "Python, NLP (Natural Language Processing), Automation Scripts, Speech Recognition.",
         features: [
-            "<strong>Voice-Controlled Interface:</strong> Full system control via voice commands using SpeechRecognition and pyttsx3.",
-            "<strong>Task Automation:</strong> Capable of opening apps (YouTube, Gmail, Chrome), taking screenshots, and managing system power states.",
-            "<strong>Information Retrieval:</strong> Integrated with Wikipedia and WolframAlpha APIs to answer complex computational and geographical questions.",
-            "<strong>Project Structuring:</strong> Includes a custom script to automatically generate organized folder structures for new coding projects."
+            { label: "Voice-Controlled Interface:", desc: "Full system control via voice commands using SpeechRecognition and pyttsx3." },
+            { label: "Task Automation:", desc: "Capable of opening apps (YouTube, Gmail, Chrome), taking screenshots, and managing system power states." },
+            { label: "Information Retrieval:", desc: "Integrated with Wikipedia and WolframAlpha APIs to answer complex computational and geographical questions." },
+            { label: "Project Structuring:", desc: "Includes a custom script to automatically generate organized folder structures for new coding projects." }
         ]
     }
 };
@@ -132,8 +132,18 @@ window.openProjectModal = function(projectId) {
     featuresList.innerHTML = ''; // clear previous features
     data.features.forEach(feature => {
         const li = document.createElement('li');
-        li.innerHTML = feature;
-        li.className = 'flex items-start text-slate-600 dark:text-slate-300 before:content-[\"\\2022\"] before:text-primary-500 before:mr-3 before:text-xl before:leading-tight';
+        li.className = 'grid grid-cols-1 md:grid-cols-[180px_1fr] md:gap-4 items-start text-slate-600 dark:text-slate-300';
+        
+        const labelDiv = document.createElement('div');
+        labelDiv.className = 'flex items-start text-slate-900 dark:text-white font-bold before:content-[\"\\2022\"] before:text-primary-500 before:mr-3 before:text-xl before:leading-tight';
+        labelDiv.textContent = feature.label;
+        
+        const descDiv = document.createElement('div');
+        descDiv.textContent = feature.desc;
+        descDiv.className = 'mt-1 md:mt-0 leading-relaxed pl-6 md:pl-0 pt-[0.10rem]';
+        
+        li.appendChild(labelDiv);
+        li.appendChild(descDiv);
         featuresList.appendChild(li);
     });
     
